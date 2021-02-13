@@ -29,7 +29,7 @@ namespace IsCrawler.Crawler
 
             var pageWordCount = 1000;
 
-            var pagenum = 100;
+            var pagenum = 120;
 
             while (indexed.Count < pagenum)
             {
@@ -47,6 +47,7 @@ namespace IsCrawler.Crawler
                 if(links.Count < 1) 
                 {
                     Console.WriteLine("We have problem");
+                    break;
                 }
 
                 foreach (var url in links)
@@ -78,6 +79,7 @@ namespace IsCrawler.Crawler
                     }
 
                 }
+                links = new List<string>();
             }
 
             SaveToFile(indexed);

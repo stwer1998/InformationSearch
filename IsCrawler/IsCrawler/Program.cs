@@ -10,7 +10,7 @@ namespace IsCrawler
             Console.WriteLine("Hello World!");
 
             var cl = new IsCrawler.Crawler.Crawler();
-            cl.Crawl("https://habr.com/ru/");
+            cl.Crawl("https://habr.ru");
 
             Console.WriteLine();
 

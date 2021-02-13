@@ -34,23 +34,29 @@ namespace IsCrawler.HtmlParser
 
         private string CorrectUrl(string url, Uri uri) 
         {
-            if (string.IsNullOrEmpty(url))
+            if (string.IsNullOrEmpty(url) || url.Contains(".jpg") || url.Contains(".png") || url.Contains(".jpeg"))
                 return null;
 
             if (url.StartsWith("//"))
-                return $"{uri.Scheme}:{url}";
+                url = $"{uri.Scheme}:{url}";
 
             if (url.StartsWith("/"))
-                return $"{uri.Scheme}://{uri.Host}/{url}";
+                url = $"{uri.Scheme}://{uri.Host}/{url}";
 
             if (!url.StartsWith("http"))
-                return $"{uri.Scheme}://{uri.Host}/{url}";
+                url = $"{uri.Scheme}://{uri.Host}/{url}";            
+
+            if (url.Contains('#'))
+                url = url.Substring(0,url.IndexOf('#'));
+
+            if (url.EndsWith("//"))
+                url = url.Remove(url.Length - 2, 2);
+
+            if (url.EndsWith("/"))
+                url = url.Remove(url.Length - 1, 1);
 
             if (!url.Contains(uri.Host))
                 return null;
-
-            if (url.Contains('#'))
-                return url.Substring(0,url.IndexOf('#'));
 
             return url;
         }
