@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "lvmA088jKvus1UkzHvZIvTXWhKKU4kbBzbuaGGZTlZ3jTwc45J+VM4lB8ja3uwJ06R+gRj16ZFX/zkmR2HeAEg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\stwer\\source\\repos\\IsCrawler\\IsCrawler\\IsCrawler.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\stwer\\.nuget\\packages\\htmlagilitypack\\1.11.30\\htmlagilitypack.1.11.30.nupkg.sha512"
+  ],
+  "logs": []
+}

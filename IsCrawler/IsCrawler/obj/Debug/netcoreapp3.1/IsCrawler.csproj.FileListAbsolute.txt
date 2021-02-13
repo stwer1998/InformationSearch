@@ -1,0 +1,15 @@
+C:\Users\stwer\source\repos\IsCrawler\IsCrawler\bin\Debug\netcoreapp3.1\IsCrawler.exe
+C:\Users\stwer\source\repos\IsCrawler\IsCrawler\bin\Debug\netcoreapp3.1\IsCrawler.deps.json
+C:\Users\stwer\source\repos\IsCrawler\IsCrawler\bin\Debug\netcoreapp3.1\IsCrawler.runtimeconfig.json
+C:\Users\stwer\source\repos\IsCrawler\IsCrawler\bin\Debug\netcoreapp3.1\IsCrawler.runtimeconfig.dev.json
+C:\Users\stwer\source\repos\IsCrawler\IsCrawler\bin\Debug\netcoreapp3.1\IsCrawler.dll
+C:\Users\stwer\source\repos\IsCrawler\IsCrawler\bin\Debug\netcoreapp3.1\IsCrawler.pdb
+C:\Users\stwer\source\repos\IsCrawler\IsCrawler\bin\Debug\netcoreapp3.1\HtmlAgilityPack.dll
+C:\Users\stwer\source\repos\IsCrawler\IsCrawler\obj\Debug\netcoreapp3.1\IsCrawler.csprojAssemblyReference.cache
+C:\Users\stwer\source\repos\IsCrawler\IsCrawler\obj\Debug\netcoreapp3.1\IsCrawler.AssemblyInfoInputs.cache
+C:\Users\stwer\source\repos\IsCrawler\IsCrawler\obj\Debug\netcoreapp3.1\IsCrawler.AssemblyInfo.cs
+C:\Users\stwer\source\repos\IsCrawler\IsCrawler\obj\Debug\netcoreapp3.1\IsCrawler.csproj.CoreCompileInputs.cache
+C:\Users\stwer\source\repos\IsCrawler\IsCrawler\obj\Debug\netcoreapp3.1\IsCrawler.csproj.CopyComplete
+C:\Users\stwer\source\repos\IsCrawler\IsCrawler\obj\Debug\netcoreapp3.1\IsCrawler.dll
+C:\Users\stwer\source\repos\IsCrawler\IsCrawler\obj\Debug\netcoreapp3.1\IsCrawler.pdb
+C:\Users\stwer\source\repos\IsCrawler\IsCrawler\obj\Debug\netcoreapp3.1\IsCrawler.genruntimeconfig.cache
