@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace IsCrawler.HtmlParser
 {
@@ -8,6 +7,6 @@ namespace IsCrawler.HtmlParser
     {
         string GetText(string html);
 
-        IEnumerable<string> GetLinks(string html, string uri);
+        IEnumerable<string> GetLinks(string html, Uri uri);
     }
 }

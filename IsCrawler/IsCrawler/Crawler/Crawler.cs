@@ -12,8 +12,15 @@ namespace IsCrawler.Crawler
     {
         HtmlParser.HtmlParser htmlParser;
         HttpClient httpClient;
-        public Crawler()
+        private const string ParentForderPath = @"d:\InformationSearch\";
+        private readonly int PageCount = 100;
+        private readonly int WordCount = 1000;
+
+        public Crawler(int pageCount = 100, int wordCouny = 1000)
         {
+            PageCount = pageCount;
+            WordCount = wordCouny;
+            CreateForder();
             htmlParser = new HtmlParser.HtmlParser();
             httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36");
@@ -21,17 +28,15 @@ namespace IsCrawler.Crawler
 
         public void Crawl(string link) 
         {
-            var links = new List<string>() { link };
-            var indexed = new List<IndexLink>();
-            var newLinks = new List<string>();
-            var indexedbad = new List<string>();
-            var inQueue = new List<string>();
+            var uri = new Uri(link);
 
-            var pageWordCount = 1000;
+            var links = new List<string>() { link };//links step now
+            var indexed = new List<IndexLink>();//indexed links
+            var newLinks = new List<string>();//new links 
+            var indexedbad = new List<string>();//not found or bad links
+            var inQueue = new List<string>();//links in queue
 
-            var pagenum = 120;
-
-            while (indexed.Count < pagenum)
+            while (indexed.Count < PageCount)
             {
                 if (newLinks.Count > 0 || inQueue.Count > 0) 
                 {
@@ -39,14 +44,14 @@ namespace IsCrawler.Crawler
                     links.AddRange(inQueue);
                     links.RemoveAll(x => indexed.Select(x => x.Link).Contains(x));
                     links.RemoveAll(x => indexedbad.Contains(x));
-                    inQueue = links.Skip(pagenum - indexed.Count).Distinct().ToList();
-                    links = links.Take(pagenum - indexed.Count).ToList();
+                    inQueue = links.Skip(PageCount - indexed.Count).Distinct().ToList();
+                    links = links.Take(PageCount - indexed.Count).ToList();
                     newLinks = new List<string>();
                 }
 
                 if(links.Count < 1) 
                 {
-                    Console.WriteLine("We have problem");
+                    Console.WriteLine("not enough links");
                     break;
                 }
 
@@ -55,10 +60,10 @@ namespace IsCrawler.Crawler
                     try 
                     {
                         var html = httpClient.GetStringAsync(url).Result;
-                        newLinks.AddRange(htmlParser.GetLinks(html, url));
+                        newLinks.AddRange(htmlParser.GetLinks(html, uri));
                         var text = htmlParser.GetText(html);
                         var wordCount = GetWordsCount(text);
-                        if (wordCount > pageWordCount) 
+                        if (wordCount > WordCount) 
                         {
                             indexed.Add(new IndexLink 
                             {
@@ -88,19 +93,18 @@ namespace IsCrawler.Crawler
 
         private void SaveToFile(List<IndexLink> indexLinks) 
         {
-            var parentPath = @"d:\InformationSearch\";
 
             var uri = new Uri(indexLinks[0].Link);
 
-            var pathToDir = $"{parentPath}/{uri.Host}";
+            var pathToDir = $"{ParentForderPath}/{uri.Host}";
 
             if (!Directory.Exists(pathToDir)) 
-            {
+            {//Create forder for link
                 Directory.CreateDirectory(pathToDir);
             }
 
             for (int i = 0; i < indexLinks.Count; i++)
-            {
+            {//save text in file
                 var fileName = $"{pathToDir}/{i}.txt";
                 if (File.Exists(fileName))
                 {
@@ -128,6 +132,14 @@ namespace IsCrawler.Crawler
                 fs.Write(title, 0, title.Length);
             }
 
+        }
+
+        private void CreateForder() 
+        {
+            if (!Directory.Exists(ParentForderPath))
+            {//Create forder for link
+                Directory.CreateDirectory(ParentForderPath);
+            }
         }
 
         private int GetWordsCount(string str) 

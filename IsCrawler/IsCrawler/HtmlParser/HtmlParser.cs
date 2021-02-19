@@ -7,16 +7,15 @@ namespace IsCrawler.HtmlParser
 {
     public class HtmlParser : IHtmlParser
     {
-        public IEnumerable<string> GetLinks(string html, string uri)
+        public IEnumerable<string> GetLinks(string html, Uri uri)
         {
-            var uri1 = new Uri(uri);
 
             HtmlDocument doc = new HtmlDocument();
             doc.LoadHtml(html);
 
             var hrefList = doc.DocumentNode.SelectNodes("//body//a")
                               .Select(p => p.GetAttributeValue("href",""))
-                              .Select(x=>x=CorrectUrl(x,uri1))
+                              .Select(x=>x=CorrectUrl(x,uri))
                               .Where(x=>x!=null)
                               .Distinct()
                               .ToList();
@@ -28,7 +27,6 @@ namespace IsCrawler.HtmlParser
         {
             var doc = new HtmlDocument();
             doc.LoadHtml(html);
-
             return doc.DocumentNode.InnerText.Trim();
         }
 
@@ -41,9 +39,9 @@ namespace IsCrawler.HtmlParser
                 url = $"{uri.Scheme}:{url}";
 
             if (url.StartsWith("/"))
-                url = $"{uri.Scheme}://{uri.Host}/{url}";
+                url = $"{uri.Scheme}://{uri.Host}{url}";
 
-            if (!url.StartsWith("http"))
+            if (!url.StartsWith("http") && !url.Contains(uri.Host))
                 url = $"{uri.Scheme}://{uri.Host}/{url}";            
 
             if (url.Contains('#'))

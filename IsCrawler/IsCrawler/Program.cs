@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net.Http;
 
 namespace IsCrawler
 {
@@ -7,10 +6,11 @@ namespace IsCrawler
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Enter link:");
 
-            var cl = new IsCrawler.Crawler.Crawler();
-            cl.Crawl("https://habr.ru");
+            var crawler = new Crawler.Crawler();
+            string link = Console.ReadLine();
+            crawler.Crawl(link);
 
             Console.WriteLine();
 
