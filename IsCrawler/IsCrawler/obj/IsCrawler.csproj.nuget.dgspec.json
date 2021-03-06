@@ -1,36 +1,38 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\stwer\\source\\repos\\IsCrawler\\IsCrawler\\IsCrawler.csproj": {}
+    "D:\\Repositories\\InformationSearch\\IsCrawler\\IsCrawler\\IsCrawler.csproj": {}
   },
   "projects": {
-    "C:\\Users\\stwer\\source\\repos\\IsCrawler\\IsCrawler\\IsCrawler.csproj": {
+    "D:\\Repositories\\InformationSearch\\IsCrawler\\IsCrawler\\IsCrawler.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stwer\\source\\repos\\IsCrawler\\IsCrawler\\IsCrawler.csproj",
+        "projectUniqueName": "D:\\Repositories\\InformationSearch\\IsCrawler\\IsCrawler\\IsCrawler.csproj",
         "projectName": "IsCrawler",
-        "projectPath": "C:\\Users\\stwer\\source\\repos\\IsCrawler\\IsCrawler\\IsCrawler.csproj",
+        "projectPath": "D:\\Repositories\\InformationSearch\\IsCrawler\\IsCrawler\\IsCrawler.csproj",
         "packagesPath": "C:\\Users\\stwer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stwer\\source\\repos\\IsCrawler\\IsCrawler\\obj\\",
+        "outputPath": "D:\\Repositories\\InformationSearch\\IsCrawler\\IsCrawler\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
           "C:\\Users\\stwer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
+          "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {}
           }
         },
@@ -41,12 +43,16 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
             "HtmlAgilityPack": {
               "target": "Package",
               "version": "[1.11.30, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
             }
           },
           "imports": [
@@ -64,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
